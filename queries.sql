@@ -15,7 +15,6 @@ WHERE (location = "St.Louis");
 DROP TABLE job;
 
 ## Part 4: Test it with SQL
-SELECT name, description
-FROM job_skills IN(SELECT name, description FROM skill)
-WHERE job_id is not null,
-ORDER BY ASC;
+SELECT name,description
+FROM skill where id in (SELECT skills_id FROM job_skills where jobs_id is not null) 
+order by name asc 
